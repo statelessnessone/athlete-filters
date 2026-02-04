@@ -13,27 +13,6 @@
       "firefox": "strava-athlete-filters-0.0.1-firefox.xpi",
       "chrome": "strava-athlete-filters-0.0.1-chrome.zip",
       "description": "Release version 0.0.1"
-    },
-    {
-      "version": "0.0.1",
-      "date": "2026-02-04",
-      "firefox": "strava-athlete-filters-0.0.1-firefox.xpi",
-      "chrome": "strava-athlete-filters-0.0.1-chrome.zip",
-      "description": "Release version 0.0.1"
-    },
-    {
-      "version": "0.0.1",
-      "date": "2026-02-03",
-      "firefox": "strava-athlete-filters-0.0.1-firefox.xpi",
-      "chrome": "strava-athlete-filters-0.0.1-chrome.zip",
-      "description": "Release version 0.0.1"
-    },
-    {
-      "version": "0.0.1",
-      "date": "2026-02-02",
-      "firefox": "strava-athlete-filters-0.0.1-firefox.xpi",
-      "chrome": "strava-athlete-filters-0.0.1-chrome.zip",
-      "description": "Release version 0.0.1"
     }
   ]
 }
