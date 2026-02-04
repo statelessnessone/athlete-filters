@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Athlete Filters - Browser Extension</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>🚴 Athlete Filters</h1>
+            <p class="tagline">Organize and filter your Strava feed by creating custom athlete groups</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <div class="browser-badges">
+                <a href="releases/" class="badge firefox">
+                    <span class="icon">🦊</span>
+                    <span class="text">Download for Firefox</span>
+                </a>
+                <a href="releases/" class="badge chrome">
+                    <span class="icon">🌐</span>
+                    <span class="text">Download for Chrome</span>
+                </a>
+            </div>
+        </section>
+
+        <section class="features">
+            <h2>Features</h2>
+            <div class="feature-grid">
+                <div class="feature">
+                    <div class="feature-icon">👥</div>
+                    <h3>Custom Groups</h3>
+                    <p>Create and manage groups of athletes to organize your feed</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🔍</div>
+                    <h3>Smart Filtering</h3>
+                    <p>Filter your feed by group, ungrouped athletes, or activities without kudos</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🏷️</div>
+                    <h3>Group Labels</h3>
+                    <p>See which groups athletes belong to on following/followers pages</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">💾</div>
+                    <h3>Backup & Restore</h3>
+                    <p>Export and import your groups for backup or transfer between browsers</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Privacy First</h3>
+                    <p>All data stored locally in your browser - nothing sent to external servers</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Lightweight</h3>
+                    <p>Minimal performance impact with efficient filtering and caching</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="installation">
+            <h2>Installation</h2>
+            <div class="install-steps">
+                <div class="step">
+                    <h3>Firefox</h3>
+                    <ol>
+                        <li>Download the <code>.xpi</code> file from the <a href="releases/">releases page</a></li>
+                        <li>Open Firefox and go to <code>about:addons</code></li>
+                        <li>Click the gear icon and select "Install Add-on From File"</li>
+                        <li>Select the downloaded <code>.xpi</code> file</li>
+                    </ol>
+                </div>
+                <div class="step">
+                    <h3>Chrome</h3>
+                    <ol>
+                        <li>Download the <code>.zip</code> file from the <a href="releases/">releases page</a></li>
+                        <li>Extract the zip file to a folder</li>
+                        <li>Open Chrome and go to <code>chrome://extensions</code></li>
+                        <li>Enable "Developer mode" (toggle in top right)</li>
+                        <li>Click "Load unpacked" and select the extracted folder</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <section class="usage">
+            <h2>How to Use</h2>
+            <ol class="usage-steps">
+                <li><strong>Select Athletes:</strong> Click the <span class="plus-icon">+</span> icon next to athlete names in your feed</li>
+                <li><strong>Create Groups:</strong> Open the sidebar (👥 button) and create a new group</li>
+                <li><strong>Add to Groups:</strong> Add selected athletes to your groups</li>
+                <li><strong>Filter Feed:</strong> Use the dropdown at the top of your feed to filter by group</li>
+                <li><strong>Manage Groups:</strong> Edit, delete, or reorganize groups in the sidebar</li>
+            </ol>
+        </section>
+
+        <section class="changelog">
+            <h2>Latest Release</h2>
+            <div id="latest-release">Loading...</div>
+            <p><a href="releases/">View all releases →</a></p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Open source browser extension for Strava</p>
+            <p><a href="https://github.com/yourusername/strava-athlete-filters">View on GitHub</a></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

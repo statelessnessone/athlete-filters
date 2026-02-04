@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Releases - Athlete Filters</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .release {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 4px;
+            border-left: 4px solid #fc4c02;
+        }
+        .release h3 {
+            color: #fc4c02;
+            margin-bottom: 10px;
+        }
+        .release-meta {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        .download-links {
+            margin-top: 15px;
+        }
+        .download-links a {
+            display: inline-block;
+            padding: 8px 16px;
+            background: #fc4c02;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        .download-links a:hover {
+            background: #e34402;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="../" style="color: white; text-decoration: none;">🚴 Athlete Filters</a></h1>
+            <p class="tagline">Release History</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section>
+            <h2>Releases</h2>
+            <div id="releases-list">Loading...</div>
+        </section>
+        
+        <section>
+            <h2>Installation Instructions</h2>
+            <h3>Firefox</h3>
+            <ol>
+                <li>Download the <code>.xpi</code> file for your desired version</li>
+                <li>Open Firefox and go to <code>about:addons</code></li>
+                <li>Click the gear icon and select "Install Add-on From File"</li>
+                <li>Select the downloaded <code>.xpi</code> file</li>
+            </ol>
+            
+            <h3 style="margin-top: 30px;">Chrome</h3>
+            <ol>
+                <li>Download the <code>.zip</code> file for your desired version</li>
+                <li>Extract the zip file to a folder</li>
+                <li>Open Chrome and go to <code>chrome://extensions</code></li>
+                <li>Enable "Developer mode" (toggle in top right)</li>
+                <li>Click "Load unpacked" and select the extracted folder</li>
+            </ol>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p><a href="../">← Back to home</a></p>
+        </div>
+    </footer>
+
+    <script>
+        async function loadReleases() {
+            try {
+                const response = await fetch('releases.json');
+                const data = await response.json();
+                const container = document.getElementById('releases-list');
+                
+                if (data.releases && data.releases.length > 0) {
+                    container.innerHTML = data.releases.map(release => `
+                        <div class="release">
+                            <h3>Version ${release.version}</h3>
+                            <div class="release-meta">${release.date}</div>
+                            <p>${release.description || 'Release version ' + release.version}</p>
+                            <div class="download-links">
+                                <a href="${release.firefox}">📥 Firefox (.xpi)</a>
+                                <a href="${release.chrome}">📥 Chrome (.zip)</a>
+                            </div>
+                        </div>
+                    `).join('');
+                } else {
+                    container.innerHTML = '<p>No releases available yet.</p>';
+                }
+            } catch (error) {
+                console.error('Failed to load releases:', error);
+                document.getElementById('releases-list').innerHTML = 
+                    '<p>Failed to load releases. Please try again later.</p>';
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', loadReleases);
+    </script>
+</body>
+</html>
