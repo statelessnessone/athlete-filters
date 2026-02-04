@@ -20,7 +20,7 @@ body {
 header {
     background: linear-gradient(135deg, #fc4c02 0%, #e34402 100%);
     color: white;
-    padding: 60px 0;
+    padding: 60px 0 0 0;
     text-align: center;
 }
 
@@ -32,11 +32,10 @@ header h1 {
 .tagline {
     font-size: 20px;
     opacity: 0.95;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .header-nav {
-    margin-top: 20px;
     display: flex;
     gap: 25px;
     justify-content: center;
