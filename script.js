@@ -1,3 +1,24 @@
+// Browser detection for install button
+function getInstallUrl() {
+    const ua = navigator.userAgent.toLowerCase();
+    const chromeStore = "https://chromewebstore.google.com/detail/athlete-filters/gfdihkjoekbhkiifejggkhjnmfbojcgf";
+    const firefoxStore = "https://addons.mozilla.org/en-US/firefox/addon/athlete-filters/";
+
+    if (ua.includes("firefox")) {
+        return firefoxStore;
+    }
+    // Default → Chrome store (works for Chrome, Edge, Brave, Opera, etc.)
+    return chromeStore;
+}
+
+function setupInstallButton() {
+    const btn = document.getElementById("installButton");
+    if (btn) {
+        const url = getInstallUrl();
+        btn.href = url;
+    }
+}
+
 // Load latest release information
 async function loadLatestRelease() {
     try {
@@ -11,17 +32,16 @@ async function loadLatestRelease() {
             releaseDiv.innerHTML = `
                 <h3>Version ${latest.version} - ${latest.date}</h3>
                 <p>${latest.description || 'Latest release'}</p>
-                <div style="margin-top: 15px;">
-                    <a href="releases/${latest.firefox}" style="margin-right: 10px;">Download for Firefox</a>
-                    <a href="releases/${latest.chrome}">Download for Chrome</a>
-                </div>
             `;
         }
     } catch (error) {
         console.error('Failed to load release info:', error);
         document.getElementById('latest-release').innerHTML = 
-            '<p>Visit the <a href="releases/">releases page</a> to download the extension.</p>';
+            '<p>Visit the <a href="releases/">releases page</a> for version history.</p>';
     }
 }
 
-document.addEventListener('DOMContentLoaded', loadLatestRelease);
+document.addEventListener('DOMContentLoaded', function() {
+    setupInstallButton();
+    loadLatestRelease();
+});

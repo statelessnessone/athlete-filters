@@ -22,22 +22,7 @@
             font-size: 14px;
             margin-bottom: 15px;
         }
-        .download-links {
-            margin-top: 15px;
-        }
-        .download-links a {
-            display: inline-block;
-            padding: 8px 16px;
-            background: #fc4c02;
-            color: white;
-            text-decoration: none;
-            border-radius: 4px;
-            margin-right: 10px;
-            margin-bottom: 10px;
-        }
-        .download-links a:hover {
-            background: #e34402;
-        }
+
     </style>
 </head>
 <body>
@@ -55,23 +40,12 @@
         </section>
         
         <section>
-            <h2>Installation Instructions</h2>
-            <h3>Firefox</h3>
-            <ol>
-                <li>Download the <code>.xpi</code> file for your desired version</li>
-                <li>Open Firefox and go to <code>about:addons</code></li>
-                <li>Click the gear icon and select "Install Add-on From File"</li>
-                <li>Select the downloaded <code>.xpi</code> file</li>
-            </ol>
-            
-            <h3 style="margin-top: 30px;">Chrome</h3>
-            <ol>
-                <li>Download the <code>.zip</code> file for your desired version</li>
-                <li>Extract the zip file to a folder</li>
-                <li>Open Chrome and go to <code>chrome://extensions</code></li>
-                <li>Enable "Developer mode" (toggle in top right)</li>
-                <li>Click "Load unpacked" and select the extracted folder</li>
-            </ol>
+            <h2>Install</h2>
+            <p>Install Athlete Filters from your browser's extension store:</p>
+            <ul style="list-style: none; padding: 0; margin-top: 15px;">
+                <li style="margin-bottom: 10px;"><a href="https://chromewebstore.google.com/detail/athlete-filters/gfdihkjoekbhkiifejggkhjnmfbojcgf" style="color: #fc4c02;">Chrome Web Store</a> (also works for Edge, Brave, Opera)</li>
+                <li><a href="https://addons.mozilla.org/en-US/firefox/addon/athlete-filters/" style="color: #fc4c02;">Firefox Add-ons</a></li>
+            </ul>
         </section>
     </main>
 
@@ -94,10 +68,6 @@
                             <h3>Version ${release.version}</h3>
                             <div class="release-meta">${release.date}</div>
                             <p>${release.description || 'Release version ' + release.version}</p>
-                            <div class="download-links">
-                                <a href="${release.firefox}">📥 Firefox (.xpi)</a>
-                                <a href="${release.chrome}">📥 Chrome (.zip)</a>
-                            </div>
                         </div>
                     `).join('');
                 } else {
