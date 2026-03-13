@@ -6,23 +6,160 @@
     <title>Releases - Athlete Filters</title>
     <link rel="stylesheet" href="../style.css">
     <style>
-        .release {
-            margin-bottom: 30px;
-            padding: 20px;
-            background: #f9f9f9;
-            border-radius: 4px;
-            border-left: 4px solid #fc4c02;
+        .releases-timeline {
+            position: relative;
+            padding-left: 24px;
         }
-        .release h3 {
-            color: #fc4c02;
-            margin-bottom: 10px;
+        .releases-timeline::before {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 8px;
+            bottom: 8px;
+            width: 2px;
+            background: #e8e8e8;
         }
-        .release-meta {
-            color: #666;
+        .release-card {
+            position: relative;
+            margin-bottom: 32px;
+            background: white;
+            border: 1px solid #e8e8e8;
+            border-radius: 10px;
+            padding: 28px 28px 24px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+            transition: box-shadow 0.2s;
+        }
+        .release-card:hover {
+            box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+        }
+        .release-card::before {
+            content: '';
+            position: absolute;
+            left: -21px;
+            top: 28px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ddd;
+            border: 2px solid white;
+            box-shadow: 0 0 0 2px #ddd;
+        }
+        .release-card.latest::before {
+            background: #fc4c02;
+            box-shadow: 0 0 0 2px #fc4c02;
+        }
+        .release-header {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 6px;
+        }
+        .release-version {
+            font-size: 22px;
+            font-weight: 700;
+            color: #333;
+        }
+        .badge-latest {
+            background: #fc4c02;
+            color: white;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 3px 9px;
+            border-radius: 12px;
+        }
+        .release-date {
+            color: #999;
             font-size: 14px;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
-
+        .release-description {
+            color: #555;
+            font-size: 15px;
+            margin-bottom: 18px;
+            line-height: 1.5;
+        }
+        .changes-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 20px;
+        }
+        .changes-list li {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            padding: 5px 0;
+            font-size: 14px;
+            color: #444;
+            border-bottom: 1px solid #f5f5f5;
+        }
+        .changes-list li:last-child {
+            border-bottom: none;
+        }
+        .change-tag {
+            flex-shrink: 0;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            padding: 2px 7px;
+            border-radius: 4px;
+            min-width: 46px;
+            text-align: center;
+        }
+        .change-tag.added {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+        .change-tag.fixed {
+            background: #fff3e0;
+            color: #e65100;
+        }
+        .download-row {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 8px 16px;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            color: #555;
+            background: #fafafa;
+            transition: border-color 0.2s, background 0.2s, color 0.2s;
+        }
+        .download-btn:hover {
+            border-color: #fc4c02;
+            color: #fc4c02;
+            background: #fff8f5;
+        }
+        .download-btn img {
+            display: block;
+            width: 16px;
+            height: 16px;
+        }
+        .install-strip {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+        .install-strip a {
+            color: #fc4c02;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .install-strip a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -30,22 +167,28 @@
         <div class="container">
             <h1><a href="../" style="color: white; text-decoration: none;">🚴 Athlete Filters</a></h1>
             <p class="tagline">Release History</p>
+            <nav class="header-nav">
+                <a href="../">Home</a>
+                <a href="../support.html">Support</a>
+                <a href="../privacy.html">Privacy</a>
+                <a href="https://github.com/statelessnessone/athlete-filters-src">GitHub</a>
+            </nav>
         </div>
     </header>
 
-    <main class="container">
+    <main class="container" style="padding-top: 48px; padding-bottom: 48px;">
         <section>
-            <h2>Releases</h2>
-            <div id="releases-list">Loading...</div>
-        </section>
-        
-        <section>
-            <h2>Install</h2>
-            <p>Install Athlete Filters from your browser's extension store:</p>
-            <ul style="list-style: none; padding: 0; margin-top: 15px;">
-                <li style="margin-bottom: 10px;"><a href="https://chromewebstore.google.com/detail/athlete-filters/gfdihkjoekbhkiifejggkhjnmfbojcgf" style="color: #fc4c02;">Chrome Web Store</a> (also works for Edge, Brave, Opera)</li>
-                <li><a href="https://addons.mozilla.org/en-US/firefox/addon/athlete-filters/" style="color: #fc4c02;">Firefox Add-ons</a></li>
-            </ul>
+            <div style="display:flex; align-items:baseline; justify-content:space-between; flex-wrap:wrap; gap:12px; margin-bottom:32px;">
+                <h2 style="margin-bottom:0;">Release History</h2>
+                <div class="install-strip">
+                    <span style="color:#888; font-size:14px;">Install from:</span>
+                    <a href="https://chromewebstore.google.com/detail/athlete-filters/gfdihkjoekbhkiifejggkhjnmfbojcgf">Chrome Web Store</a>
+                    <a href="https://addons.mozilla.org/en-US/firefox/addon/athlete-filters/">Firefox Add-ons</a>
+                </div>
+            </div>
+            <div class="releases-timeline" id="releases-list">
+                <p style="color:#888;">Loading releases…</p>
+            </div>
         </section>
     </main>
 
@@ -56,30 +199,72 @@
     </footer>
 
     <script>
+        function formatDate(iso) {
+            const [y, m, d] = iso.split('-').map(Number);
+            return new Date(y, m - 1, d).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+        }
+
+        function changeTag(type) {
+            const labels = { added: 'Added', fixed: 'Fixed', changed: 'Changed', removed: 'Removed' };
+            return `<span class="change-tag ${type}">${labels[type] || type}</span>`;
+        }
+
+        function renderDownloads(release) {
+            const buttons = [];
+            if (release.firefox) {
+                buttons.push(`
+                    <a class="download-btn" href="${release.firefox}" download title="Download for Firefox">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Firefox_logo%2C_2019.svg" alt="Firefox">
+                        Firefox (.xpi)
+                    </a>`);
+            }
+            if (release.chrome) {
+                buttons.push(`
+                    <a class="download-btn" href="${release.chrome}" download title="Download for Chrome / Edge / Brave">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Google_Chrome_icon_%28February_2022%29.svg" alt="Chrome">
+                        Chrome / Edge (.zip)
+                    </a>`);
+            }
+            return buttons.join('');
+        }
+
         async function loadReleases() {
+            const container = document.getElementById('releases-list');
             try {
                 const response = await fetch('releases.json');
                 const data = await response.json();
-                const container = document.getElementById('releases-list');
-                
-                if (data.releases && data.releases.length > 0) {
-                    container.innerHTML = data.releases.map(release => `
-                        <div class="release">
-                            <h3>Version ${release.version}</h3>
-                            <div class="release-meta">${release.date}</div>
-                            <p>${release.description || 'Release version ' + release.version}</p>
-                        </div>
-                    `).join('');
-                } else {
+
+                if (!data.releases || data.releases.length === 0) {
                     container.innerHTML = '<p>No releases available yet.</p>';
+                    return;
                 }
+
+                container.innerHTML = data.releases.map((release, index) => {
+                    const isLatest = index === 0;
+                    const changeItems = (release.changes || []).map(c =>
+                        `<li>${changeTag(c.type)}<span>${c.text}</span></li>`
+                    ).join('');
+
+                    return `
+                        <div class="release-card${isLatest ? ' latest' : ''}">
+                            <div class="release-header">
+                                <span class="release-version">v${release.version}</span>
+                                ${isLatest ? '<span class="badge-latest">Latest</span>' : ''}
+                            </div>
+                            <div class="release-date">${formatDate(release.date)}</div>
+                            ${release.description ? `<p class="release-description">${release.description}</p>` : ''}
+                            ${changeItems ? `<ul class="changes-list">${changeItems}</ul>` : ''}
+                            <div class="download-row">
+                                ${renderDownloads(release)}
+                            </div>
+                        </div>`;
+                }).join('');
             } catch (error) {
                 console.error('Failed to load releases:', error);
-                document.getElementById('releases-list').innerHTML = 
-                    '<p>Failed to load releases. Please try again later.</p>';
+                container.innerHTML = '<p style="color:#c00;">Failed to load releases. Please try again later.</p>';
             }
         }
-        
+
         document.addEventListener('DOMContentLoaded', loadReleases);
     </script>
 </body>

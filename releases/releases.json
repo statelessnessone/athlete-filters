@@ -5,28 +5,52 @@
       "date": "2026-03-13",
       "firefox": "strava-athlete-filters-0.0.4.xpi",
       "chrome": "strava-athlete-filters-0.0.4.zip",
-      "description": "Release version 0.0.4"
+      "description": "Bug fixes for athlete profile filtering, UI layout, and bulk kudos behaviour.",
+      "changes": [
+        { "type": "fixed", "text": "Filters no longer applied on athlete profile pages — filter state is preserved and resumes on return to the dashboard" },
+        { "type": "fixed", "text": "Bulk kudos counter and filter info text no longer overwrite each other — split into two separate rows in the status area" },
+        { "type": "fixed", "text": "Bulk kudos no longer targets the logged-in user's own activities — own activities are detected and skipped" }
+      ]
     },
     {
       "version": "0.0.3",
-      "date": "2026-03-13",
+      "date": "2026-03-01",
       "firefox": "strava-athlete-filters-0.0.3.xpi",
       "chrome": "strava-athlete-filters-0.0.3.zip",
-      "description": "Release version 0.0.3"
+      "description": "Bulk kudos — give kudos to all visible un-kudo'd activities with a single click.",
+      "changes": [
+        { "type": "added", "text": "Bulk kudos button next to the group filter dropdown — one click to kudo all visible un-kudo'd activities" },
+        { "type": "added", "text": "Progress indicator shows kudos count during bulk operation" },
+        { "type": "added", "text": "Pulsing animation on button while bulk kudos are in progress" }
+      ]
     },
     {
       "version": "0.0.2",
       "date": "2026-02-15",
       "firefox": "strava-athlete-filters-0.0.2.xpi",
       "chrome": "strava-athlete-filters-0.0.2.zip",
-      "description": "Release version 0.0.2"
+      "description": "Persistent filter state and stability fixes.",
+      "changes": [
+        { "type": "added", "text": "Persist athlete selection across page reloads" },
+        { "type": "added", "text": "Persist active group filter across page reloads" },
+        { "type": "fixed", "text": "Fixed infinite recursion in alphabeticalSort in popup.js" }
+      ]
     },
     {
       "version": "0.0.1",
-      "date": "2026-02-04",
+      "date": "2026-02-14",
       "firefox": "strava-athlete-filters-0.0.1.xpi",
       "chrome": "strava-athlete-filters-0.0.1.zip",
-      "description": "Release version 0.0.1"
+      "description": "Initial release — custom athlete groups, feed filtering, and browser store listings.",
+      "changes": [
+        { "type": "added", "text": "Create and manage custom athlete groups" },
+        { "type": "added", "text": "Filter Strava feed by group, ungrouped athletes, or activities without kudos" },
+        { "type": "added", "text": "Group labels on following/followers pages" },
+        { "type": "added", "text": "Batch athlete selection with paginated sidebar UI" },
+        { "type": "added", "text": "Export/import groups for backup and cross-browser transfer" },
+        { "type": "added", "text": "Local storage only — no data sent to external servers" },
+        { "type": "added", "text": "Firefox and Chrome support (Manifest V3)" }
+      ]
     }
   ]
 }
