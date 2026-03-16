@@ -1,12 +1,24 @@
 {
   "releases": [
     {
-      "version": "0.0.4",
-      "date": "2026-03-13",
-      "firefox": "strava-athlete-filters-0.0.4.xpi",
-      "chrome": "strava-athlete-filters-0.0.4.zip",
-      "description": "Release version 0.0.4",
+      "version": "0.1.0",
+      "date": "2026-03-16",
+      "firefox": "strava-athlete-filters-0.1.0.xpi",
+      "chrome": "strava-athlete-filters-0.1.0.zip",
+      "description": "Release version 0.1.0",
       "changes": [
+        {
+          "type": "added",
+          "text": "**Follow Tracker** — scan your Strava followers and following lists to track changes over time"
+        },
+        {
+          "type": "added",
+          "text": "**Resizable sidebar panel** — drag the left edge to any width; preference persisted across sessions"
+        },
+        {
+          "type": "added",
+          "text": "**What's New banner** — shown once after an extension update with release highlights and a link to the releases page; dismissed per-version"
+        },
         {
           "type": "fixed",
           "text": "Filters no longer applied on athlete profile pages (`/athletes/*`) — filter state is preserved and resumes on return to the dashboard"
@@ -20,6 +32,13 @@
           "text": "Bulk kudos no longer targets the logged-in user's own activities — own activities are detected and skipped to avoid incorrectly opening the kudos-giver list"
         }
       ]
+    },
+    {
+      "version": "0.0.4",
+      "date": "2026-03-16",
+      "firefox": "strava-athlete-filters-0.0.4.xpi",
+      "chrome": "strava-athlete-filters-0.0.4.zip",
+      "description": "Release version 0.0.4"
     },
     {
       "version": "0.0.3",
