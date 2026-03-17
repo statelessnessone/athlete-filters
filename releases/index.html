@@ -122,30 +122,6 @@
             gap: 10px;
             flex-wrap: wrap;
         }
-        .download-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 7px;
-            padding: 8px 16px;
-            border-radius: 6px;
-            border: 1px solid #ddd;
-            text-decoration: none;
-            font-size: 13px;
-            font-weight: 600;
-            color: #555;
-            background: #fafafa;
-            transition: border-color 0.2s, background 0.2s, color 0.2s;
-        }
-        .download-btn:hover {
-            border-color: #fc4c02;
-            color: #fc4c02;
-            background: #fff8f5;
-        }
-        .download-btn img {
-            display: block;
-            width: 16px;
-            height: 16px;
-        }
         .install-strip {
             display: flex;
             gap: 16px;
@@ -209,25 +185,6 @@
             return `<span class="change-tag ${type}">${labels[type] || type}</span>`;
         }
 
-        function renderDownloads(release) {
-            const buttons = [];
-            if (release.firefox) {
-                buttons.push(`
-                    <a class="download-btn" href="${release.firefox}" download title="Download for Firefox">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Firefox_logo%2C_2019.svg" alt="Firefox">
-                        Firefox (.xpi)
-                    </a>`);
-            }
-            if (release.chrome) {
-                buttons.push(`
-                    <a class="download-btn" href="${release.chrome}" download title="Download for Chrome / Edge / Brave">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Google_Chrome_icon_%28February_2022%29.svg" alt="Chrome">
-                        Chrome / Edge (.zip)
-                    </a>`);
-            }
-            return buttons.join('');
-        }
-
         async function loadReleases() {
             const container = document.getElementById('releases-list');
             try {
@@ -254,9 +211,6 @@
                             <div class="release-date">${formatDate(release.date)}</div>
                             ${release.description ? `<p class="release-description">${release.description}</p>` : ''}
                             ${changeItems ? `<ul class="changes-list">${changeItems}</ul>` : ''}
-                            <div class="download-row">
-                                ${renderDownloads(release)}
-                            </div>
                         </div>`;
                 }).join('');
             } catch (error) {
