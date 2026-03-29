@@ -2,24 +2,126 @@
   "releases": [
     {
       "version": "0.2.0",
-      "date": "2026-03-19",
+      "date": "2026-03-29",
       "firefox": "strava-athlete-filters-0.2.0.xpi",
       "chrome": "strava-athlete-filters-0.2.0.zip",
-      "description": "Release version 0.2.0"
+      "description": "Release version 0.2.0",
+      "changes": [
+        {
+          "type": "added",
+          "text": "Live follower/following count monitoring — detects count changes while browsing Strava and prompts a rescan when your counts diverge from the last scan"
+        },
+        {
+          "type": "added",
+          "text": "Rescan banner appears at the top of the page (full-width, orange background) when a count change is detected"
+        },
+        {
+          "type": "changed",
+          "text": "Follower/following scan now uses real browser tab navigation instead of direct fetch requests, fixing Strava's SSR-only HTML response behaviour"
+        },
+        {
+          "type": "changed",
+          "text": "Scan page limit is now honoured by the tab-based scan (user-configurable via Follow Tracker settings)"
+        },
+        {
+          "type": "changed",
+          "text": "Backup export/import now strips internal scan-state keys (`ftScanStatus`, `ftNetworkPending`, `ftLastParseError`)"
+        },
+        {
+          "type": "changed",
+          "text": "Sidebar tabs reordered for improved workflow"
+        },
+        {
+          "type": "changed",
+          "text": "Extension version in exported backup now read from the manifest (was previously hardcoded)"
+        },
+        {
+          "type": "fixed",
+          "text": "Rescan banner no longer dismisses prematurely on an idle status before the scan has started"
+        },
+        {
+          "type": "fixed",
+          "text": "Follower count element selector updated to use a resilient `data-testid` attribute instead of a fragile CSS class name"
+        },
+        {
+          "type": "fixed",
+          "text": "`DOMContentLoaded` race condition in network interceptor resolved — handler fires immediately when the DOM is already loaded"
+        },
+        {
+          "type": "fixed",
+          "text": "Scan timeout now correctly cleared when the tab scan responds successfully"
+        },
+        {
+          "type": "fixed",
+          "text": "Removed unreachable fetch-based scan pipeline from scanner.js (superseded by tab-based scan)"
+        }
+      ]
     },
     {
       "version": "0.1.0",
       "date": "2026-03-19",
       "firefox": "strava-athlete-filters-0.1.0.xpi",
       "chrome": "strava-athlete-filters-0.1.0.zip",
-      "description": "Release version 0.1.0"
+      "description": "Follow Tracker — scan follower/following lists, detect new follows and unfollows over time, with configurable limits and full history log.",
+      "changes": [
+        {
+          "type": "added",
+          "text": "Follow Tracker tab in the Strava sidebar — scan follower and following lists, detect new follows and unfollows over time"
+        },
+        {
+          "type": "added",
+          "text": "Filterable scan history log with period and type dropdowns, and summary counts"
+        },
+        {
+          "type": "added",
+          "text": "User-configurable scan page limit in Follow Tracker settings"
+        },
+        {
+          "type": "added",
+          "text": "Danger Zone — clear all Follow Tracker data with a typed RESET confirmation"
+        },
+        {
+          "type": "added",
+          "text": "What's New banner shown on extension update, dismissed per version"
+        },
+        {
+          "type": "added",
+          "text": "Resizable sidebar panel with drag handle (size persists across sessions)"
+        },
+        {
+          "type": "added",
+          "text": "Revamped About tab with collapsible sections and version history"
+        },
+        {
+          "type": "fixed",
+          "text": "Default tab now activated correctly on popup load"
+        },
+        {
+          "type": "fixed",
+          "text": "Removed duplicate FT_DEBUG_LOGGING constant declaration"
+        }
+      ]
     },
     {
       "version": "0.0.4",
       "date": "2026-03-16",
       "firefox": "strava-athlete-filters-0.0.4.xpi",
       "chrome": "strava-athlete-filters-0.0.4.zip",
-      "description": "Release version 0.0.4"
+      "description": "Feed filter and bulk kudos fixes — profile pages no longer filtered, status layout corrected, own activities skipped in bulk kudos.",
+      "changes": [
+        {
+          "type": "fixed",
+          "text": "Filters no longer applied on athlete profile pages — filter state preserved and resumes on return to the dashboard"
+        },
+        {
+          "type": "fixed",
+          "text": "Bulk kudos counter and filter info text no longer overwrite each other — split into two separate rows in the status area"
+        },
+        {
+          "type": "fixed",
+          "text": "Bulk kudos no longer targets the logged-in user's own activities — own activities detected and skipped"
+        }
+      ]
     },
     {
       "version": "0.0.3",
