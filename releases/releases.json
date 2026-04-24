@@ -2,7 +2,7 @@
   "releases": [
     {
       "version": "0.2.1",
-      "date": "2026-04-06",
+      "date": "2026-04-24",
       "firefox": "strava-athlete-filters-0.2.1.xpi",
       "chrome": "strava-athlete-filters-0.2.1.zip",
       "description": "Release version 0.2.1"
