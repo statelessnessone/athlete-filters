@@ -34,7 +34,53 @@
       "date": "2026-04-24",
       "firefox": "strava-athlete-filters-0.2.1.xpi",
       "chrome": "strava-athlete-filters-0.2.1.zip",
-      "description": "Release version 0.2.1"
+      "description": "Release version 0.2.1",
+      "changes": [
+        {
+          "type": "added",
+          "text": "Partial rescan — when the live count monitor detects a change, only the list(s) whose count changed are re-fetched; the unchanged list is reused from the existing snapshot"
+        },
+        {
+          "type": "added",
+          "text": "Forced full-scan interval — if both lists have not been fully scanned within a configurable number of days (default: 14), the rescan is automatically promoted to a full scan to catch any drift the live counter may have missed"
+        },
+        {
+          "type": "added",
+          "text": "`ftFullScanIntervalDays` setting exposed in Follow Tracker ⚙ Settings panel (\"Force full scan after X days\", min 1, default 14)"
+        },
+        {
+          "type": "added",
+          "text": "Last full scan date shown below the interval field in Follow Tracker settings"
+        },
+        {
+          "type": "added",
+          "text": "Rescan banner copy now reflects whether a partial or forced full scan is in progress"
+        },
+        {
+          "type": "added",
+          "text": "**Bulk Kudos Settings** panel in the sidebar Groups tab — checkbox to control whether \"rode with\" participants in group activities receive kudos (default: on), persisted via `bulkKudosIncludeRodWith`"
+        },
+        {
+          "type": "fixed",
+          "text": "Bulk kudos now correctly gives kudos to all participants in group/club ride feed entries — previously `querySelector` returned only the first kudos button per entry, skipping \"rode with\" athletes entirely"
+        },
+        {
+          "type": "fixed",
+          "text": "Bulk kudos own-activity guard no longer skips the whole feed entry — it now skips only the primary athlete's button, so co-riders in the same entry are still included"
+        },
+        {
+          "type": "fixed",
+          "text": "Bulk kudos completion notification now reads \"athletes\" instead of \"activities\" (the counter reflects individual kudos buttons, not feed entries)"
+        },
+        {
+          "type": "changed",
+          "text": "`ftLastFullScanAt` and `ftFullScanIntervalDays` stripped from backup export/import (device-specific scan state, same pattern as `ftScanStatus`)"
+        },
+        {
+          "type": "changed",
+          "text": "Manual \"Scan Now\" in the Follow Tracker sidebar always runs a full scan (both lists)"
+        }
+      ]
     },
     {
       "version": "0.2.0",
