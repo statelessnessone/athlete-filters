@@ -2,10 +2,32 @@
   "releases": [
     {
       "version": "0.2.2",
-      "date": "2026-04-24",
+      "date": "2026-04-25",
       "firefox": "strava-athlete-filters-0.2.2.xpi",
       "chrome": "strava-athlete-filters-0.2.2.zip",
-      "description": "Release version 0.2.2"
+      "description": "Release version 0.2.2",
+      "changes": [
+        {
+          "type": "added",
+          "text": "**Segment leaderboard: membership indicators** — athlete names on segment leaderboard pages now show `+` (not in any group) or `✓` (in one or more groups) inline, matching the indicator style used on the feed, activity, and follower/following pages"
+        },
+        {
+          "type": "added",
+          "text": "**Segment leaderboard: \"My Athlete Lists\" filter panel** — injected into the left column of segment leaderboard pages; click a list name to show only athletes in that list; multiple lists can be selected (OR logic); a \"Show all\" link resets the filter; panel and indicator state survive Strava's AJAX filter/period changes"
+        },
+        {
+          "type": "added",
+          "text": "**Muted Athletes** — hide specific athletes from the activity feed without unfollowing them"
+        },
+        {
+          "type": "fixed",
+          "text": "Follow Tracker scan no longer opens a new browser tab for every paginated request — a single `about:blank` tab is reused for the entire scan and closed when the scan completes, eliminating the visible tab flashing and improving performance by avoiding repeated tab creation and teardown"
+        },
+        {
+          "type": "changed",
+          "text": "Removed unnecessary `\"tabs\"` permission from manifests; the extension now requests only `activeTab` and host permissions"
+        }
+      ]
     },
     {
       "version": "0.2.1",
